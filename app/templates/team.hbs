@@ -1,0 +1,24 @@
+{{!-- templates/team.hbs --}}
+<h1>{{@model.name}}</h1>
+
+<ul>
+  <li><strong>Team ID:</strong> {{@model.id}}</li>
+  <li><strong>Description:</strong> {{@model.description}}</li>
+</ul>
+
+<h2>Members</h2>
+<ul>
+  {{#each @model.members as |member|}}
+    <li>
+      <strong>Name:</strong> {{member.name}} -
+      <strong>Role:</strong> {{member.role}}
+    </li>
+  {{/each}}
+</ul>
+
+
+
+
+
+
+

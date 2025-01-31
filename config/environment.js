@@ -1,17 +1,16 @@
 'use strict';
 
 module.exports = function (environment) {
-  const ENV = {
+  let ENV = {
     modulePrefix: 'team-management-app',
-    environment,
+    environment: environment,
     rootURL: '/',
-    locationType: 'history',
+    locationType: 'hash', // Ubah dari 'auto' menjadi 'hash'
     EmberENV: {
-      EXTEND_PROTOTYPES: false,
       FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
+        // Enable experimental features on an ember canary build
       },
+      EXTEND_PROTOTYPES: false,
     },
 
     APP: {
@@ -21,27 +20,24 @@ module.exports = function (environment) {
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.host = 'http://localhost:3000';
+    ENV.APP.LOG_RESOLVER = true;
+    ENV.APP.LOG_ACTIVE_GENERATION = true;
+    ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+    ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
   if (environment === 'test') {
-    // Testem prefers this...
-    ENV.locationType = 'none';
-
-    // keep test console output quieter
+    ENV.locationType = 'none'; // Mengatur tipe lokasi untuk test
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
-
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
   }
 
   if (environment === 'production') {
-    // here you can enable a production-specific feature
+    // Enable production-specific features here
   }
 
   return ENV;

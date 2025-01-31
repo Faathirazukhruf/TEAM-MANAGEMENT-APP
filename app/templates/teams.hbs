@@ -1,0 +1,7 @@
+<h1>Daftar Tim</h1>
+<ul>
+  {{#each model as |team|}}
+    <li>{{#link-to "team" team.id}}{{team.name}}{{/link-to}}</li>
+  {{/each}}
+</ul>
+
