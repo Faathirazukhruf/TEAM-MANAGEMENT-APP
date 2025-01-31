@@ -1,4 +1,4 @@
-{{!-- templates/team.hbs --}}
+{{! templates/team.hbs }}
 <h1>{{@model.name}}</h1>
 
 <ul>
@@ -10,15 +10,11 @@
 <ul>
   {{#each @model.members as |member|}}
     <li>
-      <strong>Name:</strong> {{member.name}} -
-      <strong>Role:</strong> {{member.role}}
+      <strong>Name:</strong>
+      {{member.name}}
+      -
+      <strong>Role:</strong>
+      {{member.role}}
     </li>
   {{/each}}
 </ul>
-
-
-
-
-
-
-
